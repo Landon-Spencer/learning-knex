@@ -1,17 +1,22 @@
 // Update with your config settings.
+import 'dotenv/config';
+// require('dotenv').config();
+
+const connectionString = process.env.DB_CONNECTION_STRING;
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
 export const development = {
   client: 'postgresql',
-  connection: {
-    host: '127.0.0.1',
-    user: 'postgres',
-    password: 'docker',
-    port: 5432,
-    database: 'pet_store'
-  }
+  connection: connectionString
+  // connection: {
+  //   host: '127.0.0.1',
+  //   user: 'postgres',
+  //   password: 'docker',
+  //   port: 5432,
+  //   database: 'pet_store'
+  // }
 };
 export const staging = {
   client: 'postgresql',

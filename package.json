@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/app.js",
+    "start": "knex migrate:latest && knex seed:run && node index.js",
+    "start-dev": "knex migrate:rollback && knex migrate:latest && knex seed:run && nodemon ./src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/Landon-Spencer/learning-knex#readme",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "knex": "^3.1.0",
     "nodemon": "^3.1.9",
